@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://m8ia7eckqaws"]
+
+[ext_resource type="Script" uid="uid://bf1ymgl1haw35" path="res://scripts/bullet.gd" id="1_y78bo"]
+[ext_resource type="Texture2D" uid="uid://b3pgxey2to0uw" path="res://art/orange_fireball.png" id="2_e4vo8"]
+[ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_e4vo8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnxhe"]
+size = Vector2(12, 12)
+
+[sub_resource type="Gradient" id="Gradient_e4vo8"]
+offsets = PackedFloat32Array(0, 0.92, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.313333, 0.313333, 0.313333, 1, 0, 0, 0, 1)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_y78bo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_e4vo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xnxhe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+energy = 2.5
+texture = ExtResource("3_e4vo8")
+texture_scale = 0.3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-7, 0)
+amount = 50
+lifetime = 0.12
+randomness = 0.42
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 119.95
+gravity = Vector2(0, 0)
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_e4vo8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

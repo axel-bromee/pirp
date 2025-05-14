@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cno3h3ogian80"]
+
+[ext_resource type="PackedScene" uid="uid://btkshog85osn2" path="res://scens/charecter.tscn" id="1_buwpt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_buwpt"]
+
+[node name="map" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_buwpt")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="mana" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "100"
+label_settings = SubResource("LabelSettings_buwpt")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://2r4bduup0i4y"]
+
+[ext_resource type="Script" uid="uid://bn4yswbayaxs7" path="res://scripts/spawner.gd" id="1_ctaun"]
+
+[node name="spawner" type="Marker2D"]
+script = ExtResource("1_ctaun")
+
+[node name="spawn_interwal" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="spawn_interwal" to="." method="_on_spawn_interwal_timeout"]

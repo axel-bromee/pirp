@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjbe11w4se888"]
+
+[ext_resource type="Script" uid="uid://c8nkf27sxe5r7" path="res://scripts/base.gd" id="1_bq5xo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6cdv"]
+radius = 21.0
+height = 348.0
+
+[node name="base" type="Area2D"]
+script = ExtResource("1_bq5xo")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_f6cdv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
