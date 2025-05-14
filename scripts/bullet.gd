@@ -10,5 +10,5 @@ func _ready():
 func _process(delta):
 	position += bullet_direction * speed * delta
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(_area: Area2D):
 	queue_free()

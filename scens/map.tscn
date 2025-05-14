@@ -185,25 +185,29 @@ text = "100"
 label_settings = SubResource("LabelSettings_buwpt")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 553.0
-offset_top = 3.0
-offset_right = 636.0
-offset_bottom = 50.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 47.0
+grow_horizontal = 2
 text = "100"
 label_settings = SubResource("LabelSettings_ri7cp")
+horizontal_alignment = 1
 
 [node name="round" type="Label" parent="CanvasLayer"]
-offset_left = 211.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 26.0
+offset_left = 192.0
+offset_right = 232.0
+offset_bottom = 23.0
 text = "1"
 
 [node name="goblins" type="Label" parent="CanvasLayer"]
-offset_left = 135.0
-offset_top = 1.0
-offset_right = 175.0
-offset_bottom = 24.0
+offset_left = 98.0
+offset_right = 138.0
+offset_bottom = 23.0
+scale = Vector2(1, 1.01318)
+text = "10"
 
 [node name="barier" type="Node" parent="."]
 

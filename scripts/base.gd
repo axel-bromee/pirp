@@ -3,7 +3,7 @@ extends Area2D
 var health = 100
 
 
-func _process(delta):
+func _process(_delta):
 	label.text = "base health" + str(int(health))
 
 func _on_area_entered(area: Area2D):
