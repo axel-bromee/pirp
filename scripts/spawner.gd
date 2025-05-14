@@ -1,6 +1,7 @@
 extends Marker2D
 @onready var goblin_sceen = preload("res://scens/goblin.tscn")
 @onready var label_round: Label = $"../CanvasLayer/round"
+@onready var label_goblins: Label = $"../CanvasLayer/goblins"
 @onready var spawn_time: Timer = $spawn_interwal
 var rand_x
 var rand_y
@@ -15,13 +16,14 @@ func _ready():
 	
 
 func _process(delta):
-	pass
+	label_goblins.text = str(goblins)
+	label_round.text = str(round)
 
 func _on_spawn_interwal_timeout():
 	if goblins == 0:
 		round += 1
-		goblins = 10
-		label_round.text = str(round)
+		goblins = 10 * round / 3
+		
 		
 	
 	
