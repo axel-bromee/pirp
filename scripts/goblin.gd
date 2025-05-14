@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var health_label: Label = $health
 var speed = 100
 var health = 100
+var damage = 25
 
 var direction = Vector2.ZERO
 
@@ -17,7 +18,8 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area: Area2D):
-	health -= 50
+	if "damage" in area:
+		health -= area.damage
 
 func kill():
 	queue_free()
