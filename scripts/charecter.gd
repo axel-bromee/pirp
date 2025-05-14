@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var mana_coldown = $mana_coldown
 @onready var fire_coldown = $fire_coldown
 
+
+
 var speed = 100  # speed in pixels/sec
 var max_mana = 100
 var mana = 100
@@ -31,6 +33,7 @@ func _process(delta):
 
 	if Input.is_action_pressed("shot") and can_fire and mana >= 10:
 		shot()
+
 
 	move_and_slide()
 

@@ -6,8 +6,9 @@ extends Marker2D
 var rand_x
 var rand_y
 
-var round = 1
+var rounds = 1
 
+var goblins_extra = 0
 var goblins = 10
 var spawn_interval = 5
 
@@ -15,14 +16,16 @@ func _ready():
 	spawn_time.start(spawn_interval)
 	
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	label_goblins.text = str(goblins)
-	label_round.text = str(round)
+	label_round.text = str(rounds)
 
 func _on_spawn_interwal_timeout():
 	if goblins == 0:
-		round += 1
-		goblins = 10 * round / 3
+		rounds += 1
+		goblins_extra += 5
+		goblins = 10 + goblins_extra
 		
 		
 	

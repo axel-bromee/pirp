@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdcw5yuiyhhgb"]
+
+[ext_resource type="Script" uid="uid://dxyk77lnpnyja" path="res://scripts/goblin.gd" id="1_xmix8"]
+[ext_resource type="Texture2D" uid="uid://bklgdptn4w8n6" path="res://art/icon.svg" id="2_wlaj0"]
+[ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_rx6af"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlaj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rx6af"]
+radius = 14.0357
+
+[sub_resource type="LabelSettings" id="LabelSettings_wlaj0"]
+font_size = 7
+
+[node name="goblin" type="CharacterBody2D"]
+script = ExtResource("1_xmix8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_wlaj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wlaj0")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_rx6af")
+
+[node name="health" type="Label" parent="."]
+offset_left = -13.0
+offset_top = -22.0
+offset_right = -1.0
+offset_bottom = -11.0
+text = "100"
+label_settings = SubResource("LabelSettings_wlaj0")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.243137, 0, 1)
+energy = 4.0
+texture = ExtResource("3_rx6af")
+texture_scale = 0.3
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

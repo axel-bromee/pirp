@@ -7,4 +7,6 @@ func _process(delta):
 	label.text = "base health" + str(int(health))
 
 func _on_area_entered(area: Area2D):
-	health -= 10
+	var enemy = area.get_parent()
+	if "damage" in enemy:
+		health -= enemy.damage
