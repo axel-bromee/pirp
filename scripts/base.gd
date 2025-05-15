@@ -1,6 +1,7 @@
 extends Area2D
 @onready var label: Label = $"../CanvasLayer/Label"
 var health = 100
+var damage = 1000000
 
 
 func _process(_delta):

@@ -66,3 +66,9 @@ func _on_mana_coldown_timeout():
 
 func _on_fire_coldown_timeout():
 	can_fire = true
+
+
+func _on_pause_button_mouse_entered() -> void:
+	can_fire = false
+func _on_pause_button_mouse_exited() -> void:
+	can_fire = true

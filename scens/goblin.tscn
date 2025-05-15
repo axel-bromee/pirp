@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdcw5yuiyhhgb"]
+[gd_scene load_steps=8 format=3 uid="uid://bdcw5yuiyhhgb"]
 
 [ext_resource type="Script" uid="uid://dxyk77lnpnyja" path="res://scripts/goblin.gd" id="1_xmix8"]
 [ext_resource type="Texture2D" uid="uid://bklgdptn4w8n6" path="res://art/icon.svg" id="2_wlaj0"]
@@ -11,6 +11,10 @@ radius = 14.0357
 
 [sub_resource type="LabelSettings" id="LabelSettings_wlaj0"]
 font_size = 7
+
+[sub_resource type="Gradient" id="Gradient_rx6af"]
+offsets = PackedFloat32Array(0, 0.733333)
+colors = PackedColorArray(0.905882, 0, 0, 1, 0, 0, 0, 1)
 
 [node name="goblin" type="CharacterBody2D"]
 script = ExtResource("1_xmix8")
@@ -37,12 +41,23 @@ label_settings = SubResource("LabelSettings_wlaj0")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 0.243137, 0, 1)
-energy = 4.0
 texture = ExtResource("3_rx6af")
 texture_scale = 0.3
 
 [node name="ivincebilyt_frames" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 180
+lifetime = 0.7
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(0, -1)
+gravity = Vector2(-20, -50)
+scale_amount_max = 2.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_rx6af")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="ivincebilyt_frames" to="." method="_on_ivincebilyt_frames_timeout"]
