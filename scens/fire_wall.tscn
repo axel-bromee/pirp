@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckur3hlgvdu4l"]
+
+[ext_resource type="Script" uid="uid://g11kkx3vyuct" path="res://scripts/fire_wall.gd" id="1_prufm"]
+[ext_resource type="Texture2D" uid="uid://bklgdptn4w8n6" path="res://art/icon.svg" id="2_4f1jb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwibi"]
+size = Vector2(6, 89.5)
+
+[node name="fire wall" type="Area2D"]
+script = ExtResource("1_prufm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.08616e-07, -8.34465e-07)
+scale = Vector2(0.0625, 0.703125)
+texture = ExtResource("2_4f1jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_qwibi")
+
+[node name="shot_lifetime" type="Timer" parent="."]
+
+[node name="move_length" type="Timer" parent="."]
+
+[connection signal="timeout" from="shot_lifetime" to="." method="_on_shot_lifetime_timeout"]
+[connection signal="timeout" from="move_length" to="." method="_on_move_length_timeout"]

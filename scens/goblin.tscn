@@ -41,4 +41,8 @@ energy = 4.0
 texture = ExtResource("3_rx6af")
 texture_scale = 0.3
 
+[node name="ivincebilyt_frames" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="ivincebilyt_frames" to="." method="_on_ivincebilyt_frames_timeout"]
