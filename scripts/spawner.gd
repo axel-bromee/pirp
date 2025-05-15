@@ -23,9 +23,6 @@ func _ready():
 func _process(delta):
 	label_goblins.text = str(goblins_left + get_parent().get_node("enemies").get_child_count())
 	label_round.text = str(rounds)
-	if get_parent().get_node("enemies").get_child_count() == 0 and goblins_left == 0:
-		process_mode = Node.PROCESS_MODE_DISABLED
-		
 func next_round():
 		rounds += 1
 		goblins_extra += 5
@@ -57,6 +54,5 @@ func _on_pause_button_pressed() -> void:
 
 func _on_nextround_pressed():
 	if get_parent().get_node("enemies").get_child_count() == 0 and goblins_left == 0:
-		process_mode = Node.PROCESS_MODE_ALWAYS
 		next_round()
 		
