@@ -23,8 +23,12 @@ func _ready():
 func _process(delta):
 	label_goblins.text = str(goblins_left + get_parent().get_node("enemies").get_child_count())
 	label_round.text = str(rounds)
+
 func next_round():
 		rounds += 1
+		#if rounds % 3 == 0:
+			#goblins_extra += 100
+			#spawn_interval = 0
 		goblins_extra += 5
 		goblin_amount = 5 + goblins_extra
 		goblins_left = goblin_amount
@@ -32,13 +36,13 @@ func next_round():
 
 func spawn_goblin():
 	for i in range(goblin_amount):
-		await get_tree().create_timer(spawn_interval).timeout
 		goblins_left -= 1
 		var goblin = goblin_sceen.instantiate()
 		rand_y = randi_range(-0,0)
 		rand_x = randi_range(-100,100)
 		goblin.position = position + Vector2(rand_y,rand_x)
 		get_parent().get_node("enemies").add_child(goblin)
+		await get_tree().create_timer(spawn_interval).timeout
 
 
 func _on_pause_button_pressed() -> void:

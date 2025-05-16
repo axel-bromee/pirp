@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://cno3h3ogian80"]
+[gd_scene load_steps=15 format=4 uid="uid://cno3h3ogian80"]
 
 [ext_resource type="PackedScene" uid="uid://btkshog85osn2" path="res://scens/charecter.tscn" id="1_buwpt"]
 [ext_resource type="Texture2D" uid="uid://dx3jnwmncx7oh" path="res://art/World of Solaria New Style DEMO.png" id="2_bcg8a"]
 [ext_resource type="PackedScene" uid="uid://bjbe11w4se888" path="res://scens/base.tscn" id="3_1qhvb"]
 [ext_resource type="PackedScene" uid="uid://2r4bduup0i4y" path="res://scens/spawner.tscn" id="3_ri7cp"]
 [ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_wvn8m"]
+[ext_resource type="PackedScene" uid="uid://c6ufw1hilawpn" path="res://scens/card.tscn" id="4_q25v5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri7cp"]
 texture = ExtResource("2_bcg8a")
@@ -184,6 +185,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "100"
 label_settings = SubResource("LabelSettings_buwpt")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -196,12 +198,14 @@ grow_horizontal = 2
 text = "100"
 label_settings = SubResource("LabelSettings_ri7cp")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="round" type="Label" parent="CanvasLayer"]
 offset_left = 192.0
 offset_right = 232.0
 offset_bottom = 23.0
 text = "1"
+metadata/_edit_use_anchors_ = true
 
 [node name="goblins" type="Label" parent="CanvasLayer"]
 offset_left = 98.0
@@ -209,6 +213,7 @@ offset_right = 138.0
 offset_bottom = 23.0
 scale = Vector2(1, 1.01318)
 text = "10"
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 1
@@ -219,6 +224,7 @@ offset_top = 1.0
 offset_bottom = 32.0
 grow_horizontal = 0
 text = "Pause"
+metadata/_edit_use_anchors_ = true
 
 [node name="nextround" type="Button" parent="CanvasLayer"]
 anchors_preset = 1
@@ -230,6 +236,17 @@ offset_right = -87.0
 offset_bottom = 32.0
 grow_horizontal = 0
 text = "nextround"
+metadata/_edit_use_anchors_ = true
+
+[node name="card" parent="CanvasLayer" instance=ExtResource("4_q25v5")]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.043
+offset_left = 1.0
+offset_top = 426.0
+offset_right = 106.984
+offset_bottom = 622.136
+metadata/_edit_use_anchors_ = true
 
 [node name="barier" type="Node" parent="."]
 
