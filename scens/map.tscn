@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bjbe11w4se888" path="res://scens/base.tscn" id="3_1qhvb"]
 [ext_resource type="PackedScene" uid="uid://2r4bduup0i4y" path="res://scens/spawner.tscn" id="3_ri7cp"]
 [ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_wvn8m"]
+[ext_resource type="PackedScene" uid="uid://cjan0u38e3fy3" path="res://scens/orc.tscn" id="6_q25v5"]
 [ext_resource type="PackedScene" uid="uid://c6ufw1hilawpn" path="res://scens/card.tscn" id="4_q25v5"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri7cp"]
 texture = ExtResource("2_bcg8a")
@@ -276,6 +278,12 @@ shape = SubResource("RectangleShape2D_1qhvb")
 position = Vector2(450, 0)
 
 [node name="base" parent="." instance=ExtResource("3_1qhvb")]
+
+position = Vector2(-312, -1)
+
+[node name="Orc" parent="." instance=ExtResource("6_q25v5")]
+position = Vector2(186, 12)
+
 position = Vector2(-360, 0)
 
 [node name="enemies" type="Node2D" parent="."]
