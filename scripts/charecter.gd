@@ -33,12 +33,15 @@ func _process(delta):
 	else:
 		label_mana.label_settings.font_color = Color(0,1,0)
 
-	if Input.is_action_pressed("shot") and can_fire and mana >= 10:
+	if Input.is_action_pressed("shot") and can_fire and mana >= 10 and !is_mouse_over_ui():
 		shot()
 	if Input.is_action_pressed("second_shot") and can_fire and mana >= 50:
 		second_shot()
 
 	move_and_slide()
+	
+func is_mouse_over_ui() -> bool:
+	return get_viewport().gui_get_hovered_control() != null
 
 func shot():
 	mana -= 10
@@ -64,13 +67,6 @@ func second_shot():
 
 func _on_mana_coldown_timeout():
 	can_regen = true
-
-
+	
 func _on_fire_coldown_timeout():
-	can_fire = true
-
-
-func _on_pause_button_mouse_entered() -> void:
-	can_fire = false
-func _on_pause_button_mouse_exited() -> void:
 	can_fire = true
