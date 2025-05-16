@@ -15,6 +15,7 @@ var can_regen = true
 var regen_time = 1
 var fire_rate = 1
 var can_fire = true
+var damage_modifier = 0
 
 func _ready():
 	pass
@@ -45,6 +46,7 @@ func shot():
 	can_fire = false
 	var bullet = bullet_sceen.instantiate()
 	bullet.position = position
+	bullet.damage += damage_modifier
 	get_parent().add_child(bullet)
 	fire_coldown.start(fire_rate)
 	mana_coldown.start(regen_time)
