@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://cno3h3ogian80"]
+[gd_scene load_steps=15 format=4 uid="uid://cno3h3ogian80"]
 
 [ext_resource type="PackedScene" uid="uid://btkshog85osn2" path="res://scens/charecter.tscn" id="1_buwpt"]
 [ext_resource type="Texture2D" uid="uid://dx3jnwmncx7oh" path="res://art/World of Solaria New Style DEMO.png" id="2_bcg8a"]
 [ext_resource type="PackedScene" uid="uid://bjbe11w4se888" path="res://scens/base.tscn" id="3_1qhvb"]
 [ext_resource type="PackedScene" uid="uid://2r4bduup0i4y" path="res://scens/spawner.tscn" id="3_ri7cp"]
 [ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_wvn8m"]
+[ext_resource type="PackedScene" uid="uid://cjan0u38e3fy3" path="res://scens/orc.tscn" id="6_q25v5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri7cp"]
 texture = ExtResource("2_bcg8a")
@@ -228,3 +229,6 @@ position = Vector2(471, 3)
 
 [node name="base" parent="." instance=ExtResource("3_1qhvb")]
 position = Vector2(-312, -1)
+
+[node name="Orc" parent="." instance=ExtResource("6_q25v5")]
+position = Vector2(186, 12)

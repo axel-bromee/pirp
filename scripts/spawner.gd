@@ -8,6 +8,7 @@ var rand_y
 var round = 1
 
 var goblins = 10
+
 var spawn_interval = 5
 
 func _ready():

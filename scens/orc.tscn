@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjan0u38e3fy3"]
+
+[ext_resource type="Script" uid="uid://cuq6qmid5pc4b" path="res://scripts/orc.gd" id="1_udv8t"]
+[ext_resource type="Texture2D" uid="uid://bklgdptn4w8n6" path="res://art/icon.svg" id="2_76f87"]
+[ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="2_ccvvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76f87"]
+size = Vector2(75, 74)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ns43"]
+radius = 50.01
+
+[node name="Orc" type="CharacterBody2D"]
+script = ExtResource("1_udv8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_76f87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_76f87")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_5ns43")
+
+[node name="Health" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_ccvvg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
