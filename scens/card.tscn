@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ufw1hilawpn"]
+
+[ext_resource type="Script" uid="uid://bdfo52lry0ceg" path="res://scripts/card.gd" id="1_uqk5j"]
+
+[node name="card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -128.0
+offset_right = -1088.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uqk5j")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 88.0
+offset_right = 304.0
+offset_bottom = 152.0
+text = "Upgrade Card"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 136.0
+offset_right = 112.0
+offset_bottom = 168.0
+text = "UODTE"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

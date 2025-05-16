@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://2r4bduup0i4y" path="res://scens/spawner.tscn" id="3_ri7cp"]
 [ext_resource type="Texture2D" uid="uid://c2ddvfjcon80b" path="res://art/light.webp" id="3_wvn8m"]
 [ext_resource type="PackedScene" uid="uid://cjan0u38e3fy3" path="res://scens/orc.tscn" id="6_q25v5"]
+[ext_resource type="PackedScene" uid="uid://c6ufw1hilawpn" path="res://scens/card.tscn" id="4_q25v5"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri7cp"]
 texture = ExtResource("2_bcg8a")
@@ -145,6 +147,7 @@ size = Vector2(0.551624, 39.8513)
 size = Vector2(5.82258, 7.42589)
 
 [node name="map" type="Node2D"]
+process_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.192157, 0.210147, 0.443733, 1)
@@ -160,7 +163,7 @@ tile_set = SubResource("TileSet_1qhvb")
 
 [node name="Layer2" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AADy/wgAAAAHAAUAAADz/wgAAAAHAAUAAAD0/wgAAAAHAAUAAAD1/wgAAAAHAAUAAAD2/wgAAAAHAAUAAAD3/wgAAAAHAAUAAAD4/wgAAAAHAAUAAAD5/wgAAAAHAAUAAAD6/wgAAAAHAAUAAAD7/wgAAAAHAAUAAAD8/wgAAAAHAAUAAAD9/wgAAAAHAAUAAAD+/wgAAAAHAAUAAAD//wgAAAAHAAUAAAAAAAgAAAAHAAUAAAABAAgAAAAHAAUAAAACAAgAAAAHAAUAAAADAAgAAAAHAAUAAAAEAAgAAAAHAAUAAAAFAAgAAAAHAAUAAAAGAAgAAAAHAAUAAAAHAAgAAAAHAAUAAAAIAAgAAAAHAAUAAAAJAAgAAAAHAAUAAAAKAAgAAAAHAAUAAAALAAgAAAAHAAUAAAAMAAgAAAAHAAUAAAANAAgAAAAHAAUAAADy//b/AAAHAAUAAADz//b/AAAHAAUAAAD0//b/AAAHAAUAAAD1//b/AAAHAAUAAAD2//b/AAAHAAUAAAD3//b/AAAHAAUAAAD4//b/AAAHAAUAAAD5//b/AAAHAAUAAAD6//b/AAAHAAUAAAD7//b/AAAHAAUAAAD8//b/AAAHAAUAAAD9//b/AAAHAAUAAAD+//b/AAAHAAUAAAD///b/AAAHAAUAAAAAAPb/AAAHAAUAAAABAPb/AAAHAAUAAAACAPb/AAAHAAUAAAADAPb/AAAHAAUAAAAEAPb/AAAHAAUAAAAFAPb/AAAHAAUAAAAGAPb/AAAHAAUAAAAHAPb/AAAHAAUAAAAIAPb/AAAHAAUAAAAJAPb/AAAHAAUAAAAKAPb/AAAHAAUAAAALAPb/AAAHAAUAAAAMAPb/AAAHAAUAAAANAPb/AAAHAAUAAADr/wgAAAAHAAUAAADs/wgAAAAHAAUAAADt/wgAAAAHAAUAAADu/wgAAAAHAAUAAADv/wgAAAAHAAUAAADw/wgAAAAHAAUAAADx/wgAAAAHAAUAAAAOAAgAAAAHAAUAAAAPAAgAAAAHAAUAAAAQAAgAAAAHAAUAAAARAAgAAAAHAAUAAAASAAgAAAAHAAUAAAATAAgAAAAHAAUAAAAUAAgAAAAHAAUAAAAOAPb/AAAHAAUAAAAPAPb/AAAHAAUAAAAQAPb/AAAHAAUAAAARAPb/AAAHAAUAAAASAPb/AAAHAAUAAAATAPb/AAAHAAUAAAAUAPb/AAAHAAUAAADr//b/AAAHAAUAAADs//b/AAAHAAUAAADt//b/AAAHAAUAAADu//b/AAAHAAUAAADv//b/AAAHAAUAAADw//b/AAAHAAUAAADx//b/AAAHAAUAAAA=")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_1qhvb")
 
 [node name="Layer3" type="TileMapLayer" parent="TileMap"]
@@ -184,21 +187,68 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "100"
 label_settings = SubResource("LabelSettings_buwpt")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 553.0
-offset_top = 3.0
-offset_right = 636.0
-offset_bottom = 50.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 47.0
+grow_horizontal = 2
 text = "100"
 label_settings = SubResource("LabelSettings_ri7cp")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="round" type="Label" parent="CanvasLayer"]
-offset_left = 211.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 26.0
+offset_left = 192.0
+offset_right = 232.0
+offset_bottom = 23.0
 text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="goblins" type="Label" parent="CanvasLayer"]
+offset_left = 98.0
+offset_right = 138.0
+offset_bottom = 23.0
+scale = Vector2(1, 1.01318)
+text = "10"
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_top = 1.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "Pause"
+metadata/_edit_use_anchors_ = true
+
+[node name="nextround" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = 1.0
+offset_right = -87.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "nextround"
+metadata/_edit_use_anchors_ = true
+
+[node name="card" parent="CanvasLayer" instance=ExtResource("4_q25v5")]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.043
+offset_left = 1.0
+offset_top = 426.0
+offset_right = 106.984
+offset_bottom = 622.136
+metadata/_edit_use_anchors_ = true
 
 [node name="barier" type="Node" parent="."]
 
@@ -225,10 +275,22 @@ scale = Vector2(0.999998, 0.999998)
 shape = SubResource("RectangleShape2D_1qhvb")
 
 [node name="spawner" parent="." instance=ExtResource("3_ri7cp")]
-position = Vector2(471, 3)
+position = Vector2(450, 0)
 
 [node name="base" parent="." instance=ExtResource("3_1qhvb")]
+
 position = Vector2(-312, -1)
 
 [node name="Orc" parent="." instance=ExtResource("6_q25v5")]
 position = Vector2(186, 12)
+
+position = Vector2(-360, 0)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="CanvasLayer/PauseButton" to="CharacterBody2D" method="_on_pause_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/PauseButton" to="CharacterBody2D" method="_on_pause_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="spawner" method="_on_pause_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/nextround" to="CharacterBody2D" method="_on_pause_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/nextround" to="CharacterBody2D" method="_on_pause_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/nextround" to="spawner" method="_on_nextround_pressed"]

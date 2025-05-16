@@ -1,8 +1,11 @@
 extends CharacterBody2D
 @onready var bullet_sceen = preload("res://scens/bullet.tscn")
+@onready var Fire_wall_sceen = preload("res://scens/fire_wall.tscn")
 @onready var label_mana: Label = $"../CanvasLayer/mana"
 @onready var mana_coldown = $mana_coldown
 @onready var fire_coldown = $fire_coldown
+
+
 
 var speed = 100  # speed in pixels/sec
 var max_mana = 100
@@ -12,6 +15,7 @@ var can_regen = true
 var regen_time = 1
 var fire_rate = 1
 var can_fire = true
+var damage_modifier = 0
 
 func _ready():
 	pass
@@ -31,6 +35,8 @@ func _process(delta):
 
 	if Input.is_action_pressed("shot") and can_fire and mana >= 10:
 		shot()
+	if Input.is_action_pressed("second_shot") and can_fire and mana >= 50:
+		second_shot()
 
 	move_and_slide()
 
@@ -40,8 +46,19 @@ func shot():
 	can_fire = false
 	var bullet = bullet_sceen.instantiate()
 	bullet.position = position
+	bullet.damage += damage_modifier
 	get_parent().add_child(bullet)
 	fire_coldown.start(fire_rate)
+	mana_coldown.start(regen_time)
+
+func second_shot():
+	mana -= 50
+	can_regen = false
+	can_fire = false
+	var fire_wall = Fire_wall_sceen.instantiate()
+	fire_wall.position = position
+	get_parent().add_child(fire_wall)
+	fire_coldown.start(fire_rate * 2)
 	mana_coldown.start(regen_time)
 
 
@@ -50,4 +67,10 @@ func _on_mana_coldown_timeout():
 
 
 func _on_fire_coldown_timeout():
+	can_fire = true
+
+
+func _on_pause_button_mouse_entered() -> void:
+	can_fire = false
+func _on_pause_button_mouse_exited() -> void:
 	can_fire = true
