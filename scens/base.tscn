@@ -7,6 +7,7 @@ radius = 21.0
 height = 348.0
 
 [node name="base" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_bq5xo")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]

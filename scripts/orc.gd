@@ -5,9 +5,11 @@ var speed = 20
 var health = 300
 var direction_change = 1
 var direction_mode = "down"
-
+var damage = 25
 var direction = Vector2.ZERO
-
+var burn_damage = 0
+var burn_time = 0
+var burning = false
 func _ready():
 	pass
 
@@ -31,7 +33,19 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area: Area2D):
-	health -= 50
+	if "burn" in area:
+		burn_damage = area.get("damage")
+		burn_time = area.get("burn")
+		burn()
+	elif "damage" in area:
+		health -= area.damage
+
+func burn():
+	burning = true
+	for i in range(burn_time):
+		await get_tree().create_timer(0.5).timeout
+		health -= burn_damage
+	burning = false
 
 func kill():
 	queue_free()

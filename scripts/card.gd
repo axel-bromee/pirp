@@ -6,12 +6,12 @@ extends Control
 var rando_card
 
 func _ready():
-	rando_card = 0#randi_range(0,9)
+	rando_card = randi_range(0,1)
 	match rando_card:
 		0:
 			common_card_mana_vis()
 		1:
-			pass
+			uncommon_spread_shot_vis()
 		2:
 			pass
 		3:
@@ -34,7 +34,7 @@ func _on_button_pressed() -> void:
 		0:
 			common_card_mana()
 		1:
-			pass
+			uncommon_spread_shot()
 		2:
 			pass
 		3:
@@ -53,9 +53,15 @@ func _on_button_pressed() -> void:
 			pass
 	for child in get_parent().get_children():
 		child.queue_free()
+
 func common_card_mana_vis():
 	upgrade_card.text = "common mana card"
 	description.text = "this card increses your max mana by 25"
-
 func common_card_mana():
 	character_body_2d.max_mana += 25
+
+func uncommon_spread_shot_vis():
+	upgrade_card.text = "uncommon spred shot"
+	description.text = "this card makes you shot 2 aditional bullets "
+func uncommon_spread_shot():
+	character_body_2d.spread_shot = true

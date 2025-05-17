@@ -10,6 +10,7 @@ size = Vector2(6, 89.5)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="fire wall" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_prufm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

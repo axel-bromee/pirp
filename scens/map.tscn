@@ -280,7 +280,7 @@ shape = SubResource("RectangleShape2D_1qhvb")
 position = Vector2(450, 0)
 
 [node name="base" parent="." instance=ExtResource("3_1qhvb")]
-position = Vector2(-312, -1)
+position = Vector2(-311, 0)
 
 [node name="enemies" type="Node2D" parent="."]
 
