@@ -1,6 +1,7 @@
 extends Marker2D
 @onready var goblin_sceen = preload("res://scens/goblin.tscn")
-@onready var Goblin_script = preload("res://scripts/goblin.gd")
+@onready var orc_sceen = preload("res://scens/orc.tscn")
+@onready var CARD = preload("res://scens/card.tscn")
 @onready var pause_button: Button = $"../CanvasLayer/PauseButton"
 @onready var label_round: Label = $"../CanvasLayer/round"
 @onready var label_goblins: Label = $"../CanvasLayer/goblins"
@@ -11,9 +12,15 @@ var paused = false
 
 var rounds = 0
 var round_clear = false
+
 var goblins_extra = 0
 var goblin_amount = 0
 var goblins_left = 0
+
+var orc_amount = 0
+var orc_left = 0
+var orc_extra = 0
+
 var spawn_interval = 5
 
 func _ready():
@@ -23,12 +30,18 @@ func _ready():
 func _process(delta):
 	label_goblins.text = str(goblins_left + get_parent().get_node("enemies").get_child_count())
 	label_round.text = str(rounds)
+	if goblins_left + orc_left + get_parent().get_node("enemies").get_child_count() == 0 and rounds % 1 == 0 and round_clear == true:
+		round_finished()
 
 func next_round():
-		rounds += 1
-		#if rounds % 3 == 0:
-			#goblins_extra += 100
-			#spawn_interval = 0
+	round_clear = true
+	rounds += 1
+	if rounds == 2:
+		orc_extra += 1
+		orc_amount = orc_extra
+		orc_left = orc_amount
+		spawn_orc()
+	else:
 		goblins_extra += 5
 		goblin_amount = 5 + goblins_extra
 		goblins_left = goblin_amount
@@ -43,6 +56,21 @@ func spawn_goblin():
 		goblin.position = position + Vector2(rand_y,rand_x)
 		get_parent().get_node("enemies").add_child(goblin)
 		await get_tree().create_timer(spawn_interval).timeout
+func spawn_orc():
+	for i in range(orc_amount):
+		orc_left -= 1
+		var orc = orc_sceen.instantiate()
+		rand_y = randi_range(-0,0)
+		rand_x = randi_range(-100,100)
+		orc.position = position + Vector2(rand_y,rand_x)
+		get_parent().get_node("enemies").add_child(orc)
+		await get_tree().create_timer(spawn_interval).timeout
+
+func round_finished():
+	for i in range(3):
+		var card = CARD.instantiate()
+		get_parent().get_node("CanvasLayer/HBoxContainer").add_child(card)
+	round_clear = false
 
 
 func _on_pause_button_pressed() -> void:

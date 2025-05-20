@@ -5,13 +5,9 @@ class_name Goblin
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var ivincebilyt_frames: Timer = $ivincebilyt_frames
 
-static var dead_goblins = 0
-
 var speed = 100
 var health = 100
 var damage = 25
-
-var can_take_damage = true
 var direction = Vector2.ZERO
 var burn_damage = 0
 var burn_time = 0
@@ -35,14 +31,12 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area: Area2D):
-	if "burn" in area and can_take_damage:
+	if "burn" in area:
 		burn_damage = area.get("damage")
 		burn_time = area.get("burn")
 		burn()
-	elif "damage" in area and can_take_damage:
+	elif "damage" in area:
 		health -= area.damage
-		can_take_damage = false
-		ivincebilyt_frames.start()
 
 func burn():
 	burning = true
@@ -52,9 +46,4 @@ func burn():
 	burning = false
 
 func kill():
-	dead_goblins += 1
 	queue_free()
-
-
-func _on_ivincebilyt_frames_timeout():
-	can_take_damage = true

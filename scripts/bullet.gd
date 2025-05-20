@@ -4,7 +4,7 @@ var damage = 50
 var bullet_direction = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bullet_direction = (Vector2.RIGHT).normalized()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

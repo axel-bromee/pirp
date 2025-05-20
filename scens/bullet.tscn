@@ -12,6 +12,7 @@ offsets = PackedFloat32Array(0, 0.92, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.313333, 0.313333, 0.313333, 1, 0, 0, 0, 1)
 
 [node name="bullet" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_y78bo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
