@@ -38,6 +38,7 @@ func _on_hitbox_area_entered(area: Area2D):
 	elif "damage" in area:
 		health -= area.damage
 
+
 func burn():
 	burning = true
 	for i in range(burn_time):
