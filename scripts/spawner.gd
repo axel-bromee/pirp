@@ -21,7 +21,8 @@ var orc_amount = 0
 var orc_left = 0
 var orc_extra = 0
 
-var spawn_interval = 0
+var spawn_interval = 4
+
 
 func _ready():
 	pass
