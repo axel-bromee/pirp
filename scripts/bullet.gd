@@ -2,6 +2,7 @@ extends Area2D
 var speed = 150
 var damage = 50
 var bullet_direction = Vector2.ZERO
+var pierce = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -11,4 +12,7 @@ func _process(delta):
 	position += bullet_direction * speed * delta
 
 func _on_area_entered(_area: Area2D):
-	queue_free()
+	pierce -= 1 
+	if pierce <= 0: 
+		queue_free()
+	

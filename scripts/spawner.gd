@@ -23,6 +23,7 @@ var orc_extra = 0
 
 var spawn_interval = 4
 
+
 func _ready():
 	pass
 

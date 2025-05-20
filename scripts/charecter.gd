@@ -21,6 +21,7 @@ var mana_bullet_cost = 0
 var mana_wall_cost = 0
 var fire_wall_unlocked = false
 var projectile_speed = 150
+var pierce = 1
 
 func _ready():
 	pass
@@ -58,6 +59,7 @@ func shot():
 		bullet.position = position
 		bullet.speed = projectile_speed
 		bullet.damage = damage_modifier
+		bullet.pierce = pierce
 		bullet.bullet_direction = (Vector2.RIGHT).normalized()
 		get_parent().add_child(bullet)
 		fire_coldown.start(fire_rate)
@@ -72,6 +74,7 @@ func shot():
 		bullet1.position = position
 		bullet1.speed = projectile_speed
 		bullet1.damage = damage_modifier
+		bullet1.pierce = pierce
 		bullet1.bullet_direction = (Vector2.RIGHT).normalized()
 		get_parent().add_child(bullet1)
 		
@@ -79,6 +82,7 @@ func shot():
 		bullet2.position = position
 		bullet2.speed = projectile_speed
 		bullet2.damage = damage_modifier * 0.5
+		bullet2.pierce = pierce
 		bullet2.bullet_direction = (Vector2(5,-1)).normalized()
 		get_parent().add_child(bullet2)
 		
@@ -86,6 +90,7 @@ func shot():
 		bullet3.position = position
 		bullet3.speed = projectile_speed
 		bullet3.damage = damage_modifier * 0.5
+		bullet3.pierce = pierce
 		bullet3.bullet_direction = (Vector2(5,1)).normalized()
 		get_parent().add_child(bullet3)
 		
