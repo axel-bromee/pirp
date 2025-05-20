@@ -6,12 +6,14 @@ extends Control
 var rando_card
 
 func _ready():
-	rando_card = randi_range(0,1)
+	rando_card = randi_range(0,7)
 	match rando_card:
 		0:
-			common_card_mana_vis()
+			upgrade_card.text = "Common mana card"
+			description.text = "This card increases your max mana by 25"
 		1:
-			uncommon_spread_shot_vis()
+			upgrade_card.text = "Uncommon spred shot"
+			description.text = "This card makes you shot 2 aditional bullets "
 		2:
 			pass
 		3:
@@ -19,12 +21,15 @@ func _ready():
 		4:
 			pass
 		5:
-			pass
+			upgrade_card.text = "Common cast speed"
+			description.text = "This card increases bullet fire rate "
 		6:
-			pass
+			upgrade_card.text = "Common mana regen"
+			description.text = "This card inrcreases mana regen rate"
 		7:
-			pass
-		8:
+			upgrade_card.text = "Common Pierce Bullets"
+			description.text = "Pierces one additional"
+		8:	
 			pass
 		9:
 			pass
@@ -32,36 +37,27 @@ func _ready():
 func _on_button_pressed() -> void:
 	match rando_card:
 		0:
-			common_card_mana()
+			character_body_2d.max_mana += 25
 		1:
-			uncommon_spread_shot()
+			character_body_2d.spread_shot = true
 		2:
 			pass
 		3:
-			pass
+			pass 
 		4:
 			pass
 		5:
-			pass
+			character_body_2d.fire_rate *= 0.9
 		6:
-			pass
+			character_body_2d.mana_regen_rate *= 1.15
 		7:
-			pass
+			character_body_2d.pierce
 		8:
 			pass
 		9:
 			pass
 	for child in get_parent().get_children():
 		child.queue_free()
+	
 
-func common_card_mana_vis():
-	upgrade_card.text = "common mana card"
-	description.text = "this card increses your max mana by 25"
-func common_card_mana():
-	character_body_2d.max_mana += 25
-
-func uncommon_spread_shot_vis():
-	upgrade_card.text = "uncommon spred shot"
-	description.text = "this card makes you shot 2 aditional bullets "
-func uncommon_spread_shot():
-	character_body_2d.spread_shot = true
+	
